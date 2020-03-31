@@ -14,18 +14,43 @@ class Graph{
     }
 
     void addUndirectedEdge(final Node first, final Node second){ //adds an undirected edge between first and second
-        first.neighbors.add(second);
-        second.neighbors.add(first);
+        if(ifExists(first) && ifExists(second) && checkNeighbor(first, second)){
+            first.neighbors.add(second);
+            second.neighbors.add(first);
+        }
+
     }
 
     void removeUndirectedEdge(final Node first, final Node second){ //removes an undirected edge between first and second
-        first.neighbors.remove(second);
-        second.neighbors.remove(first);
+        if(ifExists(first) && ifExists(second) && !checkNeighbor(first, second)){
+            first.neighbors.remove(second);
+            second.neighbors.remove(first);
+        }
     }
 
     HashSet<Node> getAllNodes(){ //returns all the Nodes in the graph
         HashSet<Node> nodes = new HashSet<Node>(listOfNodes);
         return nodes;
+    }
+
+    //helper functions
+
+    boolean ifExists(Node node){
+        if(listOfNodes.contains(node)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    boolean checkNeighbor(Node first, Node second){
+        if(first.neighbors.contains(second)){
+            return false;
+        }else if((second.neighbors.contains(first))){
+            return false;
+        }else{
+            return true;
+        }
     }
 
     
