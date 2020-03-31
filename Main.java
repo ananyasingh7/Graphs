@@ -28,7 +28,7 @@ class Main{
         }
 
         int size = n-1;
-        for(int i = 0; i<size; i++){ //i<n returns IndexOutOfBoundsException
+        for(int i = 0; i<size; i++){ //i<n returns IndexOutOfBoundsException, first and last node should only have 1 neighbor
             graph.addUndirectedEdge(graph.listOfNodes.get(i), graph.listOfNodes.get(i+1));
         }
         return graph;
