@@ -1,4 +1,5 @@
 #!/bin/sh
+git status
 git add .
 sleep 1
 printf "Enter commit message: "
