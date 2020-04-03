@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.ArrayList;
 
 class Main{
 
@@ -34,26 +35,24 @@ class Main{
         return graph;
     }
 
+    static ArrayList<Node> BFTRecLinkedList(final Graph graph){
+        GraphSearch graphSearchtest = new GraphSearch();
+        Graph graph1 = createLinkedList(10000);
+        return graphSearchtest.BFTRec(graph1);
+    }
+
+    static ArrayList<Node> BFTIterLinkedList(final Graph graph){
+        GraphSearch graphSearchtest = new GraphSearch();
+        Graph graph1 = createLinkedList(10000);
+        return graphSearchtest.BFTIter(graph1);
+    }
+
 
 
 
     public static void main(String[] args) {
-        int n = 500;
-        //Graph graph1 = createRandomUnweightedGraphIter(n);
-        Graph graph1 = createLinkedList(n);
-        for (int i = 0; i<graph1.listOfNodes.size(); i++){
-            System.out.println("size of neighbors of Node " + i + " is: " + graph1.listOfNodes.get(i).neighbors.size());
-        }
-        System.out.println("\n\n");
-        int counter = n;
-        for(int j = 0; j<counter; j++){
-            System.out.println("Neighbors of node " + j + " are: ");
-            for (int i = 0; i<graph1.listOfNodes.get(j).neighbors.size(); i++){
-                System.out.println(graph1.listOfNodes.get(j).neighbors.get(i).value);
-            }
-        }
-
-        
-        
+        Graph graph1 = new Graph();
+        BFTIterLinkedList(graph1);
+        //BFTRecLinkedList(graph1);
     }
 }
