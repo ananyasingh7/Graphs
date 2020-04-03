@@ -53,6 +53,12 @@ class Graph{
         }
     }
 
+    void resetVisited(){
+        for(Node node: listOfNodes){
+            node.visted = false;
+        }
+    }
+
     
 
 
