@@ -35,6 +35,7 @@ public class GraphSearch {
         while(!stack.isEmpty()){
             Node current = stack.pop();
             path.add(current);
+            System.out.print(current.value+"->");
             for(Node neighbor: current.neighbors){
                 if(!neighbor.visted){
                     neighbor.visted = true;
