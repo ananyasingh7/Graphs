@@ -22,7 +22,7 @@ public class GraphSearch {
     
 
     //THIS IS NOT COMPLETELY RIGHT! FAILES ON 2/4 TEST CASES BUT FARTHEST I COULD GET
-    
+
     //modified lesson 10 DFS psuedocode to revolve around the stack instead of Graph
     ArrayList<Node> DFSIter(final Node start, final Node end){ //which recursively returns an ArrayList of the Nodes in the Graph in a valid Depth-First Search order
         //Since not allowed to use graph, push (stack.push) start FIRST to the stack
@@ -95,12 +95,12 @@ public class GraphSearch {
             }
             while(!queue.isEmpty()){
                 Node current = queue.poll();
-                for(Node checkNode: current.neighbors){
-                    if(!checkNode.visted){
-                        System.out.print(checkNode.value + "->");
-                        checkNode.visted = true;
-                        queue.add(checkNode);
-                        vistedNodes.add(checkNode);
+                for(Node neighbor: current.neighbors){
+                    if(!neighbor.visted){
+                        System.out.print(neighbor.value + "->");
+                        neighbor.visted = true;
+                        queue.add(neighbor);
+                        vistedNodes.add(neighbor);
                     }
                 }
             }
