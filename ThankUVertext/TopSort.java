@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 
 class TopSort {
@@ -45,4 +46,30 @@ class TopSort {
 
         return nodesOutputted;
     }
+
+
+    ArrayList<Node> mDFS(final DirectedGraph graph){
+        ArrayList<Node> nodesOutputted = new ArrayList<Node>();
+
+        Stack<Node> stack = new Stack<Node>();
+        Stack<Node> output= new Stack<Node>();
+        for(Node node: graph.listOfNodes){
+            if(!node.visited){
+                output = DFSHelper(graph, node, stack);
+            }
+        }
+        while(!output.empty()){
+            Node node = output.pop();
+            nodesOutputted.add(node);
+        }
+        return nodesOutputted;
+    }
+
+    Stack<Node> DFSHelper(final DirectedGraph graph, final Node node, final Stack<Node> stack){
+        return stack;
+    }
+
+
+
+
 }
