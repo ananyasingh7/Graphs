@@ -44,6 +44,9 @@ class Test{
         graph2.addUndirectedEdge(graph2.listOfNodes.get(3), graph2.listOfNodes.get(4));
         graph2.addUndirectedEdge(graph2.listOfNodes.get(6), graph2.listOfNodes.get(5));
 
+        for(Node node: graph1.listOfNodes.get(7).neighbors){
+            System.out.println(node.value);
+        }
 
         System.out.print("BFT Iterative for Graph 1: ");
         graphSearchtest.BFTIter(graph1);

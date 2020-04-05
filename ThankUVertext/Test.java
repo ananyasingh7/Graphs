@@ -34,19 +34,8 @@ class Test {
         //5
         
         //6
-        
-        for(Node node: graph.listOfNodes.get(1).neighbors){
-            for(int i = 0; i<node.neighbors.size(); i++){
-                System.out.println(node.neighbors.get(i).value);
-            }
-        }
 
+        top.Kahns(graph);
 
-
-
-        ArrayList<Node> run1 = top.Kahns(graph);
-        for(Node node: run1){
-            //System.out.println(node.value);
-        }
     }
 }

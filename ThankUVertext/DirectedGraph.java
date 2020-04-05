@@ -18,7 +18,7 @@ class DirectedGraph {
 
     void addDirectedEdge(final Node first, final Node second){
         if(ifExists(first) && ifExists(second) && checkNeighbor(first, second)){
-            first.neighbors.add(first);
+            first.neighbors.add(second);
             first.numberOfEdges++;
         }
     }
@@ -63,8 +63,13 @@ class DirectedGraph {
     HashMap<Node, Integer> dictionary(){
         HashMap<Node, Integer> dict = new HashMap<>();
 
+        for(int i = 0; i<listOfNodes.size(); i++){
+            dict.put(listOfNodes.get(i), 0);
+        }
         for(Node node: listOfNodes){
-            dict.put(node, getNumberOfEdges(node));
+            for(Node neighbor: node.neighbors){
+                dict.replace(neighbor, dict.get(neighbor)+1); //replace neighbor edges, not the actual node edges dumbass
+            }
         }
 
         return dict;
