@@ -55,17 +55,25 @@ class TopSort {
         Stack<Node> output= new Stack<Node>();
         for(Node node: graph.listOfNodes){
             if(!node.visited){
-                output = DFSHelper(graph, node, stack);
+                output = DFSHelper(node, stack);
             }
         }
         while(!output.empty()){
             Node node = output.pop();
+            System.out.print(node.value + "->");
             nodesOutputted.add(node);
         }
         return nodesOutputted;
     }
 
-    Stack<Node> DFSHelper(final DirectedGraph graph, final Node node, final Stack<Node> stack){
+    Stack<Node> DFSHelper(final Node node, final Stack<Node> stack){
+        node.visited = true;
+        for(Node neighbor: node.neighbors){
+            if(!neighbor.visited){
+                DFSHelper(neighbor, stack);
+            }
+        }
+        stack.add(node);
         return stack;
     }
 

@@ -36,6 +36,9 @@ class Test {
         //6
 
         top.Kahns(graph);
-
+        graph.resetVisited();
+        System.out.println();
+        top.mDFS(graph);
+        graph.resetVisited();
     }
 }
