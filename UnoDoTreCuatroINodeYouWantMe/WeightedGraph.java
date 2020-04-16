@@ -6,13 +6,14 @@ import java.util.ArrayList;
 class WeightedGraph{
 
     ArrayList<Node> listOfNodes;
-    
+
     public WeightedGraph(){
         listOfNodes = new ArrayList<Node>();
     }
     
     void addNode(final int nodeVal){
-
+        Node newNode = new Node(nodeVal);
+        listOfNodes.add(newNode);
     }
 
     void addWeightedEdge(final Node first, final Node second, final int edgeWeight){
