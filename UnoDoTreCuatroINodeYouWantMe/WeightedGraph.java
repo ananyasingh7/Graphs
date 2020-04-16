@@ -1,0 +1,5 @@
+package UnoDoTreCuatroINodeYouWantMe;
+
+class WeightedGraph{
+    
+}
