@@ -25,7 +25,7 @@ class DirectedGraph {
 
     void removeDirectedEdge(final Node first, final Node second){
         if(ifExists(first) && ifExists(second) && !checkNeighbor(first, second)){
-            first.neighbors.remove(first);
+            first.neighbors.remove(second);
             first.numberOfEdges--;
         }
     }

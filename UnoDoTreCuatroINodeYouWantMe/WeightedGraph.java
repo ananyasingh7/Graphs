@@ -24,7 +24,10 @@ class WeightedGraph{
     }
 
     void removeDirectedEdge(final Node first, final Node second){
-
+        if(ifExists(first) && ifExists(second) && !checkNeighbor(first, second)){
+            first.neighbors.remove(second);
+            first.weights.remove(second);
+        }
     }
 
     HashSet<Node> getAllNodes(){

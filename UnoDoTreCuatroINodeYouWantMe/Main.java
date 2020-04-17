@@ -34,11 +34,24 @@ class Main{
         graph.addWeightedEdge(graph.listOfNodes.get(0), graph.listOfNodes.get(5), 50);
         graph.addWeightedEdge(graph.listOfNodes.get(0), graph.listOfNodes.get(2), 40);
 
+        graph.addWeightedEdge(graph.listOfNodes.get(1), graph.listOfNodes.get(4), 30);
+        graph.addWeightedEdge(graph.listOfNodes.get(1), graph.listOfNodes.get(6), 50);
+        graph.addWeightedEdge(graph.listOfNodes.get(1), graph.listOfNodes.get(3), 60);
+
+        graph.addWeightedEdge(graph.listOfNodes.get(2), graph.listOfNodes.get(5), 60);
+
+        graph.addWeightedEdge(graph.listOfNodes.get(3), graph.listOfNodes.get(5), 100);
+        graph.addWeightedEdge(graph.listOfNodes.get(3), graph.listOfNodes.get(6), 60);
+
+        graph.addWeightedEdge(graph.listOfNodes.get(4), graph.listOfNodes.get(6), 70);
+
+        graph.addWeightedEdge(graph.listOfNodes.get(5), graph.listOfNodes.get(6), 60);
+
 
         //get neighbors
         for(Node node: graph.listOfNodes){
             System.out.println("Node: " + node.value);
-            Map<Node, Integer> map = node.weights;
+            HashMap<Node, Integer> map = node.weights;
             for (Map.Entry<Node, Integer> entry : map.entrySet()) {
                 System.out.println("Neighbor = " + entry.getKey().value + ", Weight = " + entry.getValue());
             }

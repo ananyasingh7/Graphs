@@ -9,7 +9,7 @@ class Node{
     int value;
     boolean visited;
     ArrayList<Node> neighbors;
-    Map<Node, Integer> weights;
+    HashMap<Node, Integer> weights;
 
     public Node(int value){
         this.value = value;
