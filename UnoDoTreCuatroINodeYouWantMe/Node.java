@@ -2,13 +2,14 @@ package UnoDoTreCuatroINodeYouWantMe;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 class Node{
 
     int value;
     boolean visited;
     ArrayList<Node> neighbors;
-    HashMap<Node, Integer> weights;
+    Map<Node, Integer> weights;
 
     public Node(int value){
         this.value = value;
