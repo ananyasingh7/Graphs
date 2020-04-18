@@ -46,6 +46,13 @@ class Main{
 
     HashMap<Node, Integer> dijkstras(final Node start){
         HashMap<Node, Integer> map = new HashMap<Node, Integer>();
+        // Create an empty map of nodes to distances. Initialize every node to map to infinity.
+        // Set the distance for the origin to 0. Let curr be the origin.
+        // While curr is not null and its distance is not infinity.
+        // “Finalize” curr.
+        // Iterate over its neighbors, “relax” each neighbor:
+        // For each neighbor that is not finalized, update its distance (if less than its current distance) to the sum of curr’s distance and the weight of the edge between curr and this neighbor.
+        // Set curr to the next min distance node – the node with the smallest distance that is not yet finalized.
         return map;
     }
 
