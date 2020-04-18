@@ -45,8 +45,10 @@ class Main{
 
 
     HashMap<Node, Integer> dijkstras(final Node start){
-        HashMap<Node, Integer> map = new HashMap<Node, Integer>();
         // Create an empty map of nodes to distances. Initialize every node to map to infinity.
+        HashMap<Node, Integer> map = new HashMap<Node, Integer>();
+        
+
         // Set the distance for the origin to 0. Let curr be the origin.
         // While curr is not null and its distance is not infinity.
         // “Finalize” curr.

@@ -53,28 +53,34 @@ class Test{
         graph1.resetVisited();
         System.out.println("");
         System.out.print("BFT Recursive for Graph 1: ");
+
         graphSearchtest.BFTRec(graph1);
         graph1.resetVisited();
         System.out.println("");
         System.out.print("BFT Iterative for Graph 2: ");
+
         graphSearchtest.BFTIter(graph2);
         graph2.resetVisited();
         System.out.println("");
         System.out.print("BFT Recursive for Graph 2: ");
+        
         graphSearchtest.BFTRec(graph2);
         graph2.resetVisited();
         graph1.resetVisited();
         System.out.println("\n");
         System.out.print("DFS Iterative for Graph 1: ");
+        
         graphSearchtest.DFSIter(graph1.listOfNodes.get(4), graph1.listOfNodes.get(8));
         graph1.resetVisited();
         graph2.resetVisited();
         System.out.println("");
         System.out.print("DFS Iterative for Graph 2: ");
+        
         graphSearchtest.DFSIter(graph2.listOfNodes.get(10), graph2.listOfNodes.get(5));
         graph1.resetVisited();
         graph2.resetVisited();
         System.out.println("");
+        
         System.out.print("DFS Recursive for Graph 1: ");
         graphSearchtest.DFSRec(graph1.listOfNodes.get(4), graph1.listOfNodes.get(8));
         graph1.resetVisited();

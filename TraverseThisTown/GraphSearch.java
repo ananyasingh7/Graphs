@@ -25,7 +25,7 @@ public class GraphSearch {
     //THIS IS NOT COMPLETELY RIGHT! FAILES ON 2/4 TEST CASES BUT FARTHEST I COULD GET
 
     //modified lesson 10 DFS psuedocode to revolve around the stack instead of Graph
-    ArrayList<Node> DFSIter(final Node start, final Node end){ //which recursively returns an ArrayList of the Nodes in the Graph in a valid Depth-First Search order
+    ArrayList<Node> DFSIter(final Node start, final Node end){ //which ITERATIVELY returns an ArrayList of the Nodes in the Graph in a valid Depth-First Search order
         //Since not allowed to use graph, push (stack.push) start FIRST to the stack
         Stack<Node> stack = new Stack <Node>();
         start.visted = true;

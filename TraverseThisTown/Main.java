@@ -18,7 +18,9 @@ class Main{
         while(counter > 0){
             int randomNode1 = rand.nextInt(n);
             int randomNode2 = rand.nextInt(n);
-            graph.addUndirectedEdge(graph.listOfNodes.get(randomNode1), graph.listOfNodes.get(randomNode2));
+            if(randomNode1 != randomNode2){
+                graph.addUndirectedEdge(graph.listOfNodes.get(randomNode1), graph.listOfNodes.get(randomNode2));
+            }
             counter--;
         }
 
@@ -31,8 +33,7 @@ class Main{
             graph.addNode(i);
         }
 
-        int size = n-1;
-        for(int i = 0; i<size; i++){ //i<n returns IndexOutOfBoundsException, first and last node should only have 1 neighbor
+        for(int i = 0; i<n-1; i++){ //i<n returns IndexOutOfBoundsException, first and last node should only have 1 neighbor
             graph.addUndirectedEdge(graph.listOfNodes.get(i), graph.listOfNodes.get(i+1));
         }
         return graph;
