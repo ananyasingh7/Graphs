@@ -9,7 +9,6 @@ import java.util.Stack;
 
 class TopSort {
 
-    //shout out lesson 11 psuedocode
     ArrayList<Node> Kahns(final DirectedGraph graph){
         HashMap<Node, Integer> map = graph.dictionary();
         ArrayList<Node> nodesOutputted = new ArrayList<Node>();
