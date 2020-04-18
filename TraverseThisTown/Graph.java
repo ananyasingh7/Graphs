@@ -46,9 +46,7 @@ class Graph{
     }
 
     boolean checkNeighbor(Node first, Node second){
-        if(first.neighbors.contains(second)){
-            return false;
-        }else if((second.neighbors.contains(first))){
+        if(first.neighbors.contains(second) || second.neighbors.contains(first)){
             return false;
         }else{
             return true;

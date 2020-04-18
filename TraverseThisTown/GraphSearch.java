@@ -48,7 +48,7 @@ public class GraphSearch {
             }
         }
 
-        return nullArray; //returns empty array if path doesn't exist
+        return null; //returns null if path doesn't exist
     }
 
 
@@ -58,12 +58,18 @@ public class GraphSearch {
         ArrayList<Node> vistedNodes = new ArrayList<>();
         Queue<Node> queue = new LinkedList<>();
         boolean flag = false;
-        return BFTRecHelper(vistedNodes, queue, flag, graph);
+        ArrayList<Node> arrayWithoutDisconnected = BFTRecHelper(vistedNodes, queue, flag, graph);
+        for(Node node: graph.listOfNodes){
+            if(node.visted == false){
+                arrayWithoutDisconnected.add(node); //to account for disconnected nodes (code review amend)
+            }
+        }
+        return arrayWithoutDisconnected;
     }
 
     ArrayList<Node> BFTRecHelper(ArrayList<Node> visitedNodes, Queue<Node> queue, boolean flag, Graph graph){ //which recursively returns an ArrayList of the Nodes in the Graphi n a valid Breadth-First Traversal order.
         Node first = graph.listOfNodes.get(0);
-        if(!queue.contains(first) & !flag){ //add first node
+        if(!queue.contains(first) && !flag){ //add first node
             System.out.print(first.value + "->");
             queue.add(first);
         }
