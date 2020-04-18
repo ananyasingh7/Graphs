@@ -2,12 +2,30 @@ package UnoDoTreCuatroINodeYouWantMe;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 class Main{
 
 
-    WeightedGraph createRandomCompleteWeightedGraph(final int n){
-        WeightedGraph graph = new WeightedGraph();
+    static WeightedGraph createRandomCompleteWeightedGraph(final int n){ 
+        WeightedGraph graph = new WeightedGraph(); //needs to be a complete weighted graph
+        for(int i = 0; i<n; i++){
+            graph.addNode(i);
+        }
+
+        Random rand = new Random(); //ONLY weights are RANDOM
+        int counter = rand.nextInt(n);
+        
+        //need n(n-1) directed edges
+        for(Node firstNode: graph.listOfNodes){
+            for(Node secondNode: graph.listOfNodes){
+                if(firstNode != secondNode){
+                    int weight = rand.nextInt(Integer.MAX_VALUE);
+                    graph.addWeightedEdge(firstNode, secondNode, weight);
+                }
+            }
+        }
+
         return graph;
     }
 
@@ -50,6 +68,16 @@ class Main{
 
         //get neighbors
         for(Node node: graph.listOfNodes){
+            //System.out.println("Node: " + node.value);
+            HashMap<Node, Integer> map = node.weights;
+            for (Map.Entry<Node, Integer> entry : map.entrySet()) {
+                //System.out.println("Neighbor = " + entry.getKey().value + ", Weight = " + entry.getValue());
+            }
+            //System.out.println();
+        }
+
+        WeightedGraph graph2 = createRandomCompleteWeightedGraph(10);
+        for(Node node: graph2.listOfNodes){
             System.out.println("Node: " + node.value);
             HashMap<Node, Integer> map = node.weights;
             for (Map.Entry<Node, Integer> entry : map.entrySet()) {
