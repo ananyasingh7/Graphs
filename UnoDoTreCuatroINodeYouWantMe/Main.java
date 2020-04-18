@@ -29,10 +29,20 @@ class Main{
         return graph;
     }
 
-    WeightedGraph createdLinkedList(final int n){
+    static WeightedGraph createdLinkedList(final int n){ 
         WeightedGraph graph = new WeightedGraph();
+
+        for(int i = 0; i<n; i++){
+            graph.addNode(i);
+        }
+
+        int size = n-1;
+        for(int i = 0; i<size; i++){ //i<n returns IndexOutOfBoundsException, first and last node should only have 1 neighbor
+            graph.addWeightedEdge(graph.listOfNodes.get(i), graph.listOfNodes.get(i+1), 1);
+        }
         return graph;
     }
+
 
     HashMap<Node, Integer> dijkstras(final Node start){
         HashMap<Node, Integer> map = new HashMap<Node, Integer>();
@@ -66,18 +76,29 @@ class Main{
         graph.addWeightedEdge(graph.listOfNodes.get(5), graph.listOfNodes.get(6), 60);
 
 
-        //get neighbors
         for(Node node: graph.listOfNodes){
-            //System.out.println("Node: " + node.value);
+            System.out.println("Node: " + node.value);
             HashMap<Node, Integer> map = node.weights;
             for (Map.Entry<Node, Integer> entry : map.entrySet()) {
-                //System.out.println("Neighbor = " + entry.getKey().value + ", Weight = " + entry.getValue());
+                System.out.println("Neighbor = " + entry.getKey().value + ", Weight = " + entry.getValue());
             }
-            //System.out.println();
+            System.out.println();
         }
+        System.out.println("---------------------------------");
 
         WeightedGraph graph2 = createRandomCompleteWeightedGraph(10);
         for(Node node: graph2.listOfNodes){
+            System.out.println("Node: " + node.value);
+            HashMap<Node, Integer> map = node.weights;
+            for (Map.Entry<Node, Integer> entry : map.entrySet()) {
+                System.out.println("Neighbor = " + entry.getKey().value + ", Weight = " + entry.getValue());
+            }
+            System.out.println();
+        }
+        System.out.println("---------------------------------");
+
+        WeightedGraph graph3 = createdLinkedList(10);
+        for(Node node: graph3.listOfNodes){
             System.out.println("Node: " + node.value);
             HashMap<Node, Integer> map = node.weights;
             for (Map.Entry<Node, Integer> entry : map.entrySet()) {
