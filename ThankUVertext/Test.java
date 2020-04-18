@@ -13,27 +13,28 @@ class Test {
         }
 
 
-        //0
+        //Node 0 neighbors
         graph.addDirectedEdge(graph.listOfNodes.get(0), graph.listOfNodes.get(6));
         graph.addDirectedEdge(graph.listOfNodes.get(7), graph.listOfNodes.get(0));
-        //1
+
+        //Node 1 neighbors
         graph.addDirectedEdge(graph.listOfNodes.get(5), graph.listOfNodes.get(1));
         graph.addDirectedEdge(graph.listOfNodes.get(7), graph.listOfNodes.get(1));
         graph.addDirectedEdge(graph.listOfNodes.get(1), graph.listOfNodes.get(6));
         graph.addDirectedEdge(graph.listOfNodes.get(1), graph.listOfNodes.get(4));
         graph.addDirectedEdge(graph.listOfNodes.get(1), graph.listOfNodes.get(2));
 
-        //2
+        //Node 2 neighbors
 
-        //3
+        //Node 3 neighbors
         graph.addDirectedEdge(graph.listOfNodes.get(3), graph.listOfNodes.get(0));
         graph.addDirectedEdge(graph.listOfNodes.get(3), graph.listOfNodes.get(4));
 
-        //4
+        //Node 4 neighbors
 
-        //5
+        //Node 5 neighbors
         
-        //6
+        //Node 6 neighbors
 
         top.Kahns(graph);
         graph.resetVisited();

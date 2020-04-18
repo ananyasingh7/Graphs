@@ -5,7 +5,6 @@ import java.util.Random;
 
 public class Main {
 
-
     static DirectedGraph createRandomDAGIter(final int n){
         DirectedGraph graph = new DirectedGraph();
 
@@ -26,6 +25,8 @@ public class Main {
     }
 
     public static void main(String[] args) {
+
+        DirectedGraph graph = createRandomDAGIter(10);
         
     }
 }

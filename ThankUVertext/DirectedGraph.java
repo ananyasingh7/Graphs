@@ -60,7 +60,7 @@ class DirectedGraph {
         node.numberOfEdges--;
     }
 
-    HashMap<Node, Integer> dictionary(){
+    HashMap<Node, Integer> dictionary(){ //dictionary is used in Kahns algorithm
         HashMap<Node, Integer> dict = new HashMap<>();
 
         for(int i = 0; i<listOfNodes.size(); i++){
@@ -68,7 +68,7 @@ class DirectedGraph {
         }
         for(Node node: listOfNodes){
             for(Node neighbor: node.neighbors){
-                dict.replace(neighbor, dict.get(neighbor)+1); //replace neighbor edges, not the actual node edges dumbass
+                dict.replace(neighbor, dict.get(neighbor)+1); //replace neighbor edges, not the actual node edges 
             }
         }
 

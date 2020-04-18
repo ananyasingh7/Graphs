@@ -17,26 +17,21 @@ class TopSort {
 
         for(Node node: map.keySet()){
             if(map.get(node) == 0){
-                //System.out.println(node.value);
                 queue.add(node);
             }
         }
 
-        while(!queue.isEmpty()){
+        while(!queue.isEmpty()){ //FIFO 
             Node first = queue.peek();
-            //System.out.println(first.value);
             nodesOutputted.add(first);
             for(Node neighbor: first.neighbors){
-                //System.out.println(neighbors.value);
                 int val = map.get(neighbor);
-                //System.out.println(val);
                 val--;
                 map.replace(neighbor, val);
             }
             first.numberOfEdges = -1;
             for(Node neigh: first.neighbors){
                 if(map.get(neigh) == 0){
-                    //System.out.println(neigh.value);
                     queue.add(neigh);
                 }
             }
@@ -76,8 +71,5 @@ class TopSort {
         stack.add(node);
         return stack;
     }
-
-
-
 
 }
