@@ -1,7 +1,9 @@
 package UnoDoTreCuatroINodeYouWantMe;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
+import java.util.Queue;
 import java.util.Random;
 
 class Main{
@@ -44,6 +46,7 @@ class Main{
     }
 
     /*
+    LESSON 17 PSUEDOCODE
     function dijkstra(G, S)
         for each vertex V in G
             distance[V] ← infinite
@@ -65,11 +68,81 @@ class Main{
         return distance[], previous[]
     */
 
-    HashMap<Node, Integer> dijkstras(final Node start){
-        
-        HashMap<Node, Integer> mapOfNodes = new HashMap<Node, Integer>();
-        
-        return mapOfNodes;
+    /*
+    MODIFIED PSUEDOCODE
+    function dijkstra(G, S)
+        distance[S] <-  0
+        add S to Priority Queue
+        while Q IS NOT EMPTY
+            add V to Priority Queue Q
+            U ← Extract MIN from Q
+            for each unvisited neighbour V of U
+                if NOT distance.contains[V]
+                    tempDistance ← distance[U] + edgeweight(U, V)
+                    distance[V] ← tempDistance
+                else
+                    tempDistance ← distance[U] + edgeweight(U, V)
+                    if tempDistance < distance[V]
+                        distance[V] ← tempDistance
+                    else
+                        distance[V] = distance[V]
+                    fi
+                fi
+            rof
+        eliwh
+    return distance[]
+    */
+
+    static HashMap<Node, Integer> dijkstras(final Node start){
+        //distance[S] <-  0
+        HashMap<Node, Integer> distance = new HashMap<Node, Integer>();
+        distance.put(start, 0);
+
+        //add S to Priority Queue
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(start);
+
+        //while Q IS NOT EMPTY
+        while(!queue.isEmpty()){
+            //U ← Extract MIN from Q
+            Node node = queue.poll();
+            node.visited = true;
+
+            //for each unvisited neighbour V of U
+            for(Node neighbor: node.neighbors){
+                //add V to Priority Queue Q
+                queue.add(neighbor);
+
+                //if NOT distance.contains[V]
+                if(!distance.containsKey(neighbor) && !neighbor.visited){
+                    //tempDistance ← distance[U] + edgeweight(U, V)
+                    int nodeDistanceToNeighborWeight = node.weights.get(neighbor);
+                    int tempDistance = distance.get(node)+nodeDistanceToNeighborWeight;
+                    //distance[V] ← tempDistance
+                    distance.put(neighbor, tempDistance);
+                }else{
+                    //tempDistance ← distance[U] + edgeweight(U, V)
+                    int nodeDistanceToNeighborWeight = node.weights.get(neighbor);
+                    int tempDistance = distance.get(neighbor)+nodeDistanceToNeighborWeight;
+                    //if tempDistance < distance[V]
+                    if(tempDistance < distance.get(neighbor)){
+                        //distance[V] ← tempDistance
+                        distance.replace(neighbor, tempDistance);
+                    }else{
+                        //distance[V] = distance[V]
+                        distance.replace(neighbor, distance.get(neighbor));
+                    }
+                }
+                neighbor.visited = true;
+            }
+        }
+
+        for (Map.Entry<Node, Integer> entry : distance.entrySet()) {
+            System.out.println("Node = " + entry.getKey().value + ", Distance = " + entry.getValue());
+        }
+
+        //return distance[]
+        return distance;
     }
 
 
@@ -108,8 +181,11 @@ class Main{
             System.out.println();
         }
         System.out.println("---------------------------------");
-
-        WeightedGraph graph2 = createRandomCompleteWeightedGraph(10);
+        dijkstras(graph.listOfNodes.get(0));
+        System.out.println("---------------------------------");
+        
+        
+        WeightedGraph graph2 = createRandomCompleteWeightedGraph(5);
         for(Node node: graph2.listOfNodes){
             System.out.println("Node: " + node.value);
             HashMap<Node, Integer> map = node.weights;
@@ -129,6 +205,10 @@ class Main{
             }
             System.out.println();
         }
+        System.out.println("---------------------------------");
+        dijkstras(graph3.listOfNodes.get(0));
+        System.out.println("---------------------------------");
+        
 
     }
 }
