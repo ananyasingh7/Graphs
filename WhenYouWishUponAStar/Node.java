@@ -10,7 +10,7 @@ class Node {
     int x;
     int y;
 
-    public Node(int value){
+    public Node(int x, int y, int value){
         this.value = value;
         this.visited = false;
         this.neighbors = new ArrayList<Node>();
