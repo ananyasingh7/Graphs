@@ -55,7 +55,10 @@ class GridGraph {
     }
 
     void removeUndirectedEdge(final Node first, final Node second){
-
+        if(ifExists(first) && ifExists(second) && !checkNeighbor(first, second)){
+            first.neighbors.remove(second);
+            second.neighbors.remove(first);
+        }
     }
 
     HashSet<Node> getAllNodes(){
@@ -64,6 +67,24 @@ class GridGraph {
     }
 
     //helper functions
+
+    Node getNode(int value){
+        for(Node node: listOfNodes){
+            if(node.value == value){
+                return node;
+            }
+        }
+        return null;
+    }
+
+    Node getNodeWithXY(int x, int y){
+        for(Node node: listOfNodes){
+            if(node.x == x && node.y == y){
+                return node;
+            }
+        }
+        return null;
+    }
 
     boolean ifExists(Node node){
         if(listOfNodes.contains(node)){
